@@ -1,0 +1,56 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Temperature at your location</title>
+        <link
+            rel="stylesheet"
+            href="{% static 'css/output.css' %}"
+            type="text/css"
+        />
+    </head>
+    <body
+        class="h-screen flex justify-center items-center bg-white dark:bg-slate-800"
+    >
+        <div
+            class="max-w-sm bg-white border rounded-lg shadow-sm p-7 border-neutral-200/60 text-center"
+        >
+            <a href="#_" class="block mb-3">
+                <h5
+                    class="text-xl font-bold leading-none tracking-tight text-neutral-900"
+                >
+                    Temperature at
+                </h5>
+            </a>
+            {% if country %}
+            <p class="mb-5 text-3xl">{{ country }}</p>
+            {% endif %}
+            <p class="mb-5 text-2xl text-neutral-500">{{ city }}</p>
+            <p class="mb-5 text-xl p-5">{{ temp }} &#8451;</p>
+            <div class="flex">
+                <span
+                    class="isolate inline-flex rounded-md shadow-sm space-x-2"
+                >
+                    <form action="./discover">
+                        <button
+                            type="submit"
+                            class="relative inline-flex items-center bg-blue-600 px-2 py-2 text-white"
+                        >
+                            Check other places
+                        </button>
+                    </form>
+                    <form action=".">
+                        <button
+                            type="submit"
+                            class="relative -ml-px inline-flex items-center bg-red-600 px-2 py-2 text-white"
+                        >
+                            Home
+                        </button>
+                    </form>
+                </span>
+            </div>
+        </div>
+    </body>
+</html>
